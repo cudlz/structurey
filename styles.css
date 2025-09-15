@@ -2,6 +2,9 @@ body {
     margin: 0px;
     padding: 0px;
     background-color: #000000;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
 }
 
 * {
@@ -10,7 +13,30 @@ body {
 
 main {
     display: flex;
-    flex-direction: row;
+}
+
+nav {
+    display: flex;
+    background-color: #151515;
+    border-bottom: 1px solid #000000;
+    gap: 2em;
+    padding: 0em 0.25em;
+    justify-content: space-between;
+}
+
+nav div {
+    display: flex;
+}
+
+nav p {
+    margin: 0px;
+    pad: 0px;
+}
+
+#terminal-container {
+    background-color: #6e6e6e;
+    width: 300px;
+    height: 300px;
 }
 
 .menu-container {
@@ -18,6 +44,7 @@ main {
     border-right: 1px solid #000000;
     height: 100vh;
     width: 200px;
+    overflow-y: scroll;
 }
 
 .menu {
@@ -33,15 +60,22 @@ input {
     padding: 0.25em;
 }
 
-#content {
-    background-color: #202020; /* base color */
-    background-image: radial-gradient(circle, #808080 0.5px, transparent 1px);
-    background-size: 50px 50px; /* spacing between dots */
-    width: 100%;
-    height: 100vh; /* just to show full height */
+#block-container {
+    background-color: #202020;
+    width: calc(100vw - 200px);
+    height: calc(100vh - 25px);
+    overflow: scroll;
+    position: relative;
 }
 
-#block-container {
+.grid {
+    background-image: radial-gradient(circle, #e0e0e0 0.5px, transparent 1px);
+    background-size: 45px 45px;
+    background-position: 22.5px 22.5px;
+    background-attachment: local;
+}
+
+#block-palette {
     display: flex;
     flex-direction: column;
     gap: 4px;
@@ -49,45 +83,117 @@ input {
 
 .block {
     font-family: Arial, Helvetica, sans-serif;
-    padding: 0.25em;
-    min-width: 150px;
-    max-width: 400px;
-    border: 1px solid #00000030;
+    box-sizing: border-box;
+    min-width: 45px;
+    max-width: 900px;
+    min-height: 45px;
     position: relative;
     cursor: grab;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #000000;
+    user-select: none;
 }
 
 .block:active {
     cursor: grabbing;
 }
 
-.block:hover::after {
-    content: "";
-    position: absolute;
-    background-color: #00000030;
-    width: 10px;
-    height: 10px;
-    top: -1px;
-    right: -1px;
-    cursor: nesw-resize;
-}
-
 .block:hover {
     border: 1px solid #ffffff;
 }
 
-.block * {
-    user-select: none;
+.block:hover::after {
+    content: "";
+    position: absolute;
+    background-color: #00000030;
+    width: 15px;
+    height: 15px;
+    bottom: -1px;
+    right: -1px;
+    cursor: e-resize;
+    background-image: url(./assets/icons/resize.png);
+    background-size: 100%;
+}
+
+.block:hover::after {
+    display: none;
+}
+
+.block span {
+    flex: 0 0 auto;
+}
+
+.nocolor {
+    background-color: #a0a0a0 !important;
+}
+
+.onelined {
+    display: flex;
 }
 
 .block .fields {
-    display: flex;
-    justify-content: space-around;
+    background-color: #00000060;
     width: 100%;
-    background-color: #00000030;
+    height: 100%;
+    flex: 1 1 auto; 
+    display: flex;
+    justify-content: left;
 }
 
 .block .fields .field {
-    background-color: #00000030;
-    padding: 0em 0.5em;
+    padding: 0.25em;
+    width: calc(100% - 0.5em) !important;
+}
+
+.field p {
+    margin: 0px;
+    padding: 0px;
+}
+
+.highlighted {
+    border: 2px dashed #ffffff;
+    padding: calc(0.25em - 2px) !important;
+}
+
+.in-field {
+    position: relative !important;
+    left: 0px !important;
+    top: 0px !important;
+    width: 100% !important;
+}
+
+.in-field p {
+    color: #ffffff !important;
+}
+
+.fields input {
+    background-color: transparent;
+    width: 20px;
+}
+
+.field-contains-block {
+    min-height: max-content !important;
+}
+
+.field-contains-block {
+    display: none;
+}
+
+.class-title {
+    padding: 0px;
+    margin: 0px;
+}
+
+.img-button-toggle {
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    user-select: none;
+    cursor: pointer;
+}
+
+.image-label {
+    display: flex;
+    justify-content: center;
 }

@@ -1,27 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Structurey</title>
     <link rel="stylesheet" href="./styles.css">
 </head>
+
 <body>
+    <nav>
+        <div>
+            <div class="img-button-toggle" title="Toggle snapping" id="toggle-snapping">
+                <img src="./assets/icons/snapping_on.png" data-toggle-state="0" data-run="toggleSnapping()" alt="">
+                <img src="./assets/icons/snapping_off.png" data-toggle-state="1" data-run="toggleSnapping()" alt="">
+            </div>
+            <div class="img-button-toggle" title="Toggle grid" id="toggle-grid">
+                <img src="./assets/icons/grid_on.png" data-toggle-state="0" data-run="toggleGrid()" alt="">
+                <img src="./assets/icons/grid_off.png" data-toggle-state="1" data-run="toggleGrid()" alt="">
+            </div>
+            <div style="display: none;" class="img-button-toggle" title="Toggle block coloring" id="toggle-color">
+                <img src="./assets/icons/color_on.png" data-toggle-state="0" data-run="toggleColors()" alt="">
+                <img src="./assets/icons/color_off.png" data-toggle-state="1" data-run="toggleColors()" alt="">
+            </div>
+            <div class="img-button-toggle" title="Toggle code view" id="toggle-code">
+                <img src="./assets/icons/code_on.png" data-toggle-state="0" data-run="toggleCode()" alt="">
+                <img src="./assets/icons/code_off.png" data-toggle-state="1" data-run="toggleCode()" alt="">
+            </div>
+
+            <div style="display: none;" class="img-button-toggle" title="Toggle graph view" id="toggle-graph">
+                <img src="./assets/icons/graph.png" data-toggle-state="0" data-run="toggleGraph()" alt="">
+                <img src="./assets/icons/graph.png" data-toggle-state="1" data-run="toggleGraph()" alt="">
+            </div>
+            <div class="img-button-toggle" title="Toggle terminal view" id="toggle-code">
+                <img src="./assets/icons/terminal.png" data-toggle-state="0" data-run="toggleTerminal()" alt="">
+                <img src="./assets/icons/terminal.png" data-toggle-state="1" data-run="toggleTerminal()" alt="">
+            </div>
+        </div>
+        <div>
+            <div class="image-label"id="generate-code">
+                <img src="./assets/icons/play.png" alt="">
+                <p> Run Code</p>
+            </div>
+            <div class="image-label">
+                <img src="./assets/icons/code_ok.png" alt="">
+                <p>✅ Found no problems in code</p>
+            </div>
+        </div>
+    </nav>
     <main>
         <section class="menu-container">
             <div class="menu">
-                <div id="block-container">
+                <div id="block-palette">
 
                 </div>
             </div>
         </section>
-        <section id="content">
-            <div class="my-div"></div>
-        </section>
+        <section id="block-container" class="grid">
+
     </main>
+
+    <div id="rightclick-menu">
+        <p>delete</p>
+        <p>copy</p>
+        <p>duplicate</p>
+    </div>
 </body>
 
-<script type="module" src="init.js"></script>
-<script type="module" src="block.js"></script>
+<script src="init.js"></script>
+<script src="blocks.js"></script>
+<script src="button_toggle.js"></script>
+<script src="code_generator.js"></script>
 
 </html>
