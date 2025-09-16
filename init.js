@@ -25,7 +25,8 @@ window.onload = function () {
         "array",
         "input",
         "select",
-        "none"
+        "none",
+        "type_setable"
     ]
 
     // Define custom blocks
@@ -180,6 +181,17 @@ window.onload = function () {
             select: ["+", "-", "*", "/", "**", "//", "%"],
             returns: "operator_math"
         },
+        {
+            class: "types",
+            id: "type_converter",
+            name: "Convert to",
+            one_lined: true,
+            custom_fields: false,
+            fields: ["to_type", "value"],
+            field_types: ["select", "any"],
+            select: ["int", "float", "string", "boolean"],
+            returns: "type_setable"
+        }
     ];
 
     // Get palette

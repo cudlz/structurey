@@ -118,7 +118,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     field.classList.remove("highlighted");
                 } else {
                     if (field.title.replace("Expected type: ", "") == draggingBlock.title.replace("Returns: ", "") ||
-                    "any" == draggingBlock.title.replace("Returns: ", "")) {
+                    "any" == draggingBlock.title.replace("Returns: ", "") || "type_setable" == draggingBlock.title.replace("Returns: ", "")) {
                         potentialField = field;
                         field.classList.add("highlighted");   
                     }
